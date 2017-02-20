@@ -4,9 +4,15 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   template: `
   <h1>Hello {{name}}</h1>
-  <h4>App Main component</h4>
+  <img [src]="image"/>
   <my-tutorial></my-tutorial>
+  <input type="text" [value]="gt"/>
   `,
-  styles:['h4 {color: blue;}']
 })
-export class AppComponent { name = 'Bang'; }
+export class AppComponent {
+  name = 'Bang';
+
+  //property binding
+  public image = 'http://lorempixel.com/300/300';
+  public gt = 'Wellcome angular 2 for beginner';
+}
