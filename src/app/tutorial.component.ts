@@ -4,9 +4,12 @@ import { Component } from '@angular/core';
     selector: 'my-tutorial',
     template: `
     <h2>{{title}}</h2>
+    <input type="text" [(ngModel)] = "fname"/>
+    <input type="text" [(ngModel)] = "lname"/>
+    <br>
+    Full name: {{fname}} {{lname}}
     `
 })
 export class TutorialComponent {
     public title = "This is Tedu Angular2 Tutorial compponent";
-
 }
