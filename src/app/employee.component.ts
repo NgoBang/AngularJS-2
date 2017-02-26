@@ -4,8 +4,7 @@ import { EmployeeService } from './services/employee.service';
 
 @Component({
     selector: 'employee-list',
-    templateUrl: 'app/employee.component.html',
-    providers: [EmployeeService]
+    templateUrl: 'app/employee.component.html'
     // tslint:disable-next-line:eofline
 })
 
@@ -14,7 +13,11 @@ export class EmployeeListComponent implements OnInit {
 
     }
     ngOnInit() {
-        this.employees = this.employeeService.GetList();
+        this.employeeService.GetList().subscribe((response: any) => {
+            this.employees = response;
+        },error=>{
+            console.log("System error API");
+        });
     }
 
     public employees: any[];
