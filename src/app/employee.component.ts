@@ -15,8 +15,8 @@ export class EmployeeListComponent implements OnInit {
     ngOnInit() {
         this.employeeService.GetList().subscribe((response: any) => {
             this.employees = response;
-        },error=>{
-            console.log("System error API");
+        }, error => {
+            console.log(error);
         });
     }
 
