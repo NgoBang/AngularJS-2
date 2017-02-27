@@ -4,5 +4,5 @@ import { Component } from '@angular/core';
     template: `<h1>This is home component</h1>`
 })
 export class HomeComponent {
-
+// tslint:disable-next-line:eofline
 }
