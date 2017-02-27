@@ -13,8 +13,8 @@ export class EmployeeService {
     GetList(): Observable<any[]> {
         return this._http.get(this.apiUrl).map((response: Response) => response.json());
     }
-    GetSingle(): Observable<any> {
-        return this._http.get(this.apiUrl + "id=").map((response: Response) => response.json());
+    GetSingle(id: number): Observable<any> {
+        return this._http.get(this.apiUrl + id).map((response: Response) => response.json());
     }
     // tslint:disable-next-line:eofline
 }

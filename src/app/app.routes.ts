@@ -3,6 +3,8 @@ import { HomeComponent } from './home.component';
 import { EmployeeListComponent } from './employee.component';
 import { NotFoundComponent } from './notFound.component';
 import { EmployeeDetailComponent } from './employee-detail.component';
+import { EmployeeProjectsComponent } from './employee-projects.component';
+import { EmployeeOverviewComponent } from './employee-overview.component';
 
 const routing: Routes = [
     {
@@ -15,7 +17,22 @@ const routing: Routes = [
     },
     {
         path: 'employee-detail/:id',
-        component: EmployeeDetailComponent
+        component: EmployeeDetailComponent,
+        children: [
+            {
+                path: '',
+                redirectTo: 'overview',
+                pathMatch: 'full'
+            },
+            {
+                path: 'overview',
+                component: EmployeeOverviewComponent
+            },
+            {
+                path: 'projects',
+                component: EmployeeProjectsComponent
+            }
+        ]
     },
     {
         path: '**',
