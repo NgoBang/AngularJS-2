@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 export class HomeComponent {
     constructor(private router: Router) { }
     GoToEmployee() {
+        // tslint:disable-next-line:quotemark
         this.router.navigate(["employees"]);
     }
 }
