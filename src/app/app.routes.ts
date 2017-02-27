@@ -6,8 +6,6 @@ import { NotFoundComponent } from './notFound.component';
 const routing: Routes = [
     {
         path: '',
-        redirectTo: 'employees',
-        pathMatch: 'full',
         component: HomeComponent
     },
     {

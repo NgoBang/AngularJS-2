@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
     selector: 'home-component',
-    template: `<h1>This is home component</h1>`
+    template: `<h1>This is home component</h1>
+    <button (click)="GoToEmployee()">Go to employees</button>`
 })
 export class HomeComponent {
-// tslint:disable-next-line:eofline
+    constructor(private router: Router) { }
+    GoToEmployee() {
+        this.router.navigate(["employees"]);
+    }
 }
