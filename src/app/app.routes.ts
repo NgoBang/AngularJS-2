@@ -5,6 +5,9 @@ import { NotFoundComponent } from './notFound.component';
 import { EmployeeDetailComponent } from './employee-detail.component';
 import { EmployeeProjectsComponent } from './employee-projects.component';
 import { EmployeeOverviewComponent } from './employee-overview.component';
+import { LoginComponent } from './login.component';
+import { CheckLoginGuard } from './guards/check-login.guard';
+import { CheckSaveFormGuard } from './guards/check-save-form.guard';
 
 const routing: Routes = [
     {
@@ -13,11 +16,13 @@ const routing: Routes = [
     },
     {
         path: 'employees',
-        component: EmployeeListComponent
+        component: EmployeeListComponent,
+        canActivate: [CheckLoginGuard]
     },
     {
         path: 'employee-detail/:id',
         component: EmployeeDetailComponent,
+        canDeactivate: [CheckSaveFormGuard],
         children: [
             {
                 path: '',
@@ -33,6 +38,10 @@ const routing: Routes = [
                 component: EmployeeProjectsComponent
             }
         ]
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     },
     {
         path: '**',

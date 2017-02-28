@@ -9,9 +9,13 @@ import { NotFoundComponent } from './notFound.component';
 import { EmployeeDetailComponent } from './employee-detail.component';
 import { EmployeeProjectsComponent } from './employee-projects.component';
 import { EmployeeOverviewComponent } from './employee-overview.component';
+import { LoginComponent } from './login.component';
 import { EmployeeService } from './services/employee.service';
+import { LoginService } from './services/login.service';
 import { HttpModule } from '@angular/http';
 import { appRoutes } from './app.routes';
+import { CheckLoginGuard } from './guards/check-login.guard';
+import { CheckSaveFormGuard } from './guards/check-save-form.guard';
 
 
 @NgModule({
@@ -28,9 +32,10 @@ import { appRoutes } from './app.routes';
     NotFoundComponent,
     EmployeeDetailComponent,
     EmployeeProjectsComponent,
-    EmployeeOverviewComponent
+    EmployeeOverviewComponent,
+    LoginComponent
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService, LoginService, CheckLoginGuard, CheckSaveFormGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
