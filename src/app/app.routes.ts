@@ -3,11 +3,13 @@ import { HomeComponent } from './home.component';
 import { EmployeeListComponent } from './employee.component';
 import { NotFoundComponent } from './notFound.component';
 import { EmployeeDetailComponent } from './employee-detail.component';
+import { EmployeeEditComponent } from './employee-edit.component';
 import { EmployeeProjectsComponent } from './employee-projects.component';
 import { EmployeeOverviewComponent } from './employee-overview.component';
 import { LoginComponent } from './login.component';
 import { CheckLoginGuard } from './guards/check-login.guard';
 import { CheckSaveFormGuard } from './guards/check-save-form.guard';
+import { EmployeeAddComponent } from './employee-add.component';
 
 const routing: Routes = [
     {
@@ -17,6 +19,14 @@ const routing: Routes = [
     {
         path: 'employees',
         component: EmployeeListComponent
+    },
+    {
+        path: 'employee-edit/:id',
+        component: EmployeeEditComponent
+    },
+    {
+        path: 'employee-add',
+        component: EmployeeAddComponent
     },
     {
         path: 'employee-detail/:id',
