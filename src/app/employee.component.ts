@@ -1,6 +1,7 @@
 // tslint:disable-next-line:eofline
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from './services/employee.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'employee-list',
@@ -9,17 +10,20 @@ import { EmployeeService } from './services/employee.service';
 })
 
 export class EmployeeListComponent implements OnInit {
-    constructor(private employeeService: EmployeeService) {
-
-    }
+    public employees: any[];
+    public pages: number[];
+    public currentPage: number;
+    constructor(private employeeService: EmployeeService, private router: Router, private activatedRoute: ActivatedRoute) { }
     ngOnInit() {
+        this.activatedRoute.queryParams.subscribe(params => {
+            this.currentPage = params['pageNumber'] || 1;
+            console.log(this.currentPage);
+        });
         this.employeeService.GetList().subscribe((response: any) => {
             this.employees = response;
         }, error => {
             console.log(error);
         });
+        this.pages = [1, 2, 3, 4, 5];
     }
-
-    public employees: any[];
-    // tslint:disable-next-line:eofline
 }

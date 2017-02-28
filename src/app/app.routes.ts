@@ -16,13 +16,11 @@ const routing: Routes = [
     },
     {
         path: 'employees',
-        component: EmployeeListComponent,
-        canActivate: [CheckLoginGuard]
+        component: EmployeeListComponent
     },
     {
         path: 'employee-detail/:id',
         component: EmployeeDetailComponent,
-        canDeactivate: [CheckSaveFormGuard],
         children: [
             {
                 path: '',
