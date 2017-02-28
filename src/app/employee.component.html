@@ -1,5 +1,5 @@
 <div class="row">
-  <a [routerLink]="['/employee-add']">Add new</a>
+  <a [routerLink]="['/employee-add']" class="btn btn-success">Add new</a>
 </div>
 <table class="table">
   <thead>
@@ -12,13 +12,14 @@
   </thead>
   <tbody>
     <tr *ngFor="let employee of employees">
-      <td>{{employee.id}}</td>
+      <td>{{employee.name}}</td>
       <td>{{employee.createdAt | date}}</td>
       <td>{{employee.age}}</td>
       <td>{{employee.status}}</td>
       <td>
         <a [routerLink]="['/employee-detail',employee.id]">Show Detail</a>
-        <a [routerLink]="['/employee-edit',employee.id]">Edit</a>
+        <a [routerLink]="['/employee-edit',employee.id]" class="btn btn-primary">Edit</a>
+        <button (click)="Delete(employee.id)" class="btn btn-danger">Delete</button>
       </td>
     </tr>
   </tbody>
